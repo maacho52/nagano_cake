@@ -16,8 +16,8 @@ class Admin::GenresController < ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    @ganre.update
-    redirect_to '/admin/genres'
+    @genre.update(genre_params)
+    redirect_to admin_genres_path(@genre.id)
   end
 
   private
