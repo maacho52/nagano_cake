@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     #patch 'genres/:id' => 'genres#update'
 
     resources :genres
+    resources :items
   end
 end
