@@ -4,8 +4,8 @@
       <h2>ジャンル一覧・追加</h2>
 
       <div class="feild">
-        <%= form_with model: @gener, url: geners_path do |f| %>
-          <%= f.label: "ジャンル名", autofocus: true, autocomplete: "ジャンル名" %>
+        <%= form_with model: @genre, url: admin_genres_path do |f| %>
+          <%= f.label :genre, 'ジャンル名', autofocus: true, autocomplete: 'ジャンル名' %>
           <%= f.text_field :name %>
           <%= f.submit '新規登録', class: 'btn btn-sm btn-success' %>
         <% end %>
@@ -25,8 +25,9 @@
             <tr>
               <td><%= genre.name %></td>
               <td></td>
-              <td><%= link_to "編集する", edit_genre_path(genre.id), class: "btn btn-sm btn-success" %></td>
+              <td><%= link_to "編集する", admin_path(genre.id), class: "btn btn-sm btn-success" %></td>
             </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
