@@ -34,7 +34,14 @@
 
           <tr>
             <th販売ステータス></th>
-            <td><%= @item.is_active %></td>
+            <td><%= @item.is_active do %>
+                 <% if @item.is_active == true %>
+                    <p>販売中</p>
+                  <% else %>
+                    <p>販売停止中</p>
+                  <% end %>
+                <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
