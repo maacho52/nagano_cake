@@ -20,10 +20,11 @@
 
         <label for="is_active">販売ステータス</label>
           <%= f.radio_button :is_active, true %>
-          <%= f.label :is_active, '販売中', value: true %><br>
+          <%= f.label :is_active, '販売中', value: true %>
           <%= f.radio_button :is_active, false %>
           <%= f.label :is_active, '販売停止中', value: false %><br>
 
+          <%= f.submit '新規登録', class: "btn btn-sm btn-success" %>
       <% end %>
     </div>
   </div>
