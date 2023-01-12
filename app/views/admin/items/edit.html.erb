@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>商品編集</h2>
+
+      <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+        <label for="inputImage">商品画像</label>
+        <%= f.file_field :image, accept: "image/*" %><br>
+
+        <label for="inputname">商品名</label>
+        <%= f.text_field :name, autofocus: true, id:"inputname" %><br>
+
+        <label for="inputintroduction">商品説明</label>
+        <%= f.text_area :introduction, id:"inputintroduction" %><br>
+
+        <label for="genre">ジャンル</label>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+
+        <label for="inputprice">税抜価格</label>
+        <%= f.text_field :price, id:"inputprice" %><br>
+
+        <label for="is_active">販売ステータス</label>
+          <%= f.radio_button :is_active, true %>
+          <%= f.label :is_active, '販売中', value: true %>
+          <%= f.radio_button :is_active, false %>
+          <%= f.label :is_active, '販売停止中', value: false %><br>
+
+          <%= f.submit '変更を保存', class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
