@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>会員一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="font-weight-bold">商品ID</th>
+            <th class="font-weight-bold">氏名</th>
+            <th class="font-weight-bold">メールアドレス</th>
+            <th class="font-weight-bold">ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.is_deleted %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @customers %>
+    </div>
+  </div>
+</div>
