@@ -10,14 +10,14 @@
               <th class="font-weight-bold">注文個数</th>
               <th class="font-weight-bold">注文ステータス</th>
             </tr>
-            
+
             <tbody>
               <% @orders.each do |order| %>
                 <tr>
                   <td>
                     <%= link_to admin_order_path(order) do %>
                       <%= order.created_at.to_s(:datetime_jp) %>
-                    <% end %>  
+                    <% end %>
                   </td>
                   <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
                   <td><%= oreder.order_details.sum(:amount) %></td>
@@ -26,9 +26,9 @@
             </tbody>
           </thead>
         </table>
-        
-        <%= paginate @orders 
-      
+
+        <%= paginate @orders %>
+
     </div>
   </div>
 </div>
