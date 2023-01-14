@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  scope module: :public do
+    #get 'items' => 'items#index'(例)
+  end
   namespace :admin do
    # get 'genres' => 'genres#index'
     #post 'genres' => 'genres#create'
@@ -9,6 +13,5 @@ Rails.application.routes.draw do
 
     resources :genres
     resources :items
-    resources :customers
   end
 end
