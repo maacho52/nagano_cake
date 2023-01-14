@@ -1,6 +1,8 @@
 class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
+    @is_active_labels = {"1" => "販売中", "2" => "販売停止中" }
+    
   end
 
   def index
