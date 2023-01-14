@@ -2,11 +2,11 @@ class Admin::CustomersController < ApplicationController
   def index
     @customers = Customer.all.page(params[:page]).per(10)
   end
-
-    # 会員フルネーム
-  def full_name
-    self.last_name + " " + self.first_name
+  
+  def show
+    @customer = Customer.find(params[:id])
   end
+
 
   private
 
