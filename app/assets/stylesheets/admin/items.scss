@@ -7,6 +7,24 @@
   box-sizing: border-box;
  }
  
+  h3 {
+   margin: 50px;
+ }
+
 .label {
   margin-bottom: 20px;
+}
+
+label {
+  margin-right: 50px;
+  vertical-align: top;
+}
+
+textarea,{
+  resize: none;
+  width: 250px;
+  height: 150px;
+}
+.submit-button {
+  text-align: center;
 }

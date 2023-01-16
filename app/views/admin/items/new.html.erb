@@ -1,31 +1,33 @@
 <div class="container">
+  <h3>商品新規登録</h3>
   <div class="row">
-    <div class="col">
-      <h2>商品新規登録</h2>
+    <div class="col-md-3"></div>
+    <div class="col mx-auto">
       <%= form_with model: @item, url: admin_items_path do |f| %>
-        <label for="inputImage">商品画像</label>
+        <label for="inputImage"><p class="item-label">商品画像</p></label>
         <%= f.file_field :image, accept: "image/*" %><br>
 
-        <label for="inputname">商品名</label>
-        <%= f.text_field :name, autofocus: true, id:"inputname", placeholder: "商品名" %><br>
+        <label for="inputname"><p class="item-label">商品名</p></label>
+        <%= f.text_field :name, autofocus: true, id:"inputname", placeholder: "商品名", :size=>"30" %><br>
 
-        <label for="inputintroduction">商品説明</label>
+        <label for="inputintroduction"><p class="item-label">商品説明</p></label>
         <%= f.text_area :introduction, id:"inputintroduction", placeholder: "ここに説明文を記述します" %><br>
 
-        <label for="genre">ジャンル</label>
+        <label for="genre"><p class="item-label">ジャンル</p></label>
           <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: "選択してください" } %><br>
 
-        <label for="inputprice">税抜価格</label>
-        <%= f.text_field :price, id:"inputprice", placeholder: "1000" %><br>
+        <label for="inputprice"><p class="item-label">税抜価格</p></label>
+        <%= f.text_field :price, id:"inputprice", placeholder: "1000", :size=>"30" %><br>
 
-        <label for="is_active">販売ステータス</label>
+        <label for="is_active"><p class="item-label">販売ステータス</p></label>
           <%= f.radio_button :is_active, true %>
           <%= f.label :is_active, '販売中', value: true %>
           <%= f.radio_button :is_active, false %>
           <%= f.label :is_active, '販売停止中', value: false %><br>
 
-          <%= f.submit '新規登録', class: "btn btn-sm btn-success" %>
+          <div class="submit-button"><%= f.submit '新規登録', class: "btn btn-lg btn-success" %></div>
       <% end %>
     </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
