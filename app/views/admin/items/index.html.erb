@@ -19,7 +19,7 @@
             <tr>
               <td><%= item.id %></td>
               <td><%= link_to item.name, admin_item_path(item.id) %></td>
-              <td><%= item.price.to_s(:delimited) %></td>
+              <td><%= item.price.floor.to_s(:delimited) %></td>
               <td><%= item.genre.name %></td>
               <% if item.is_active == true %>
                 <td class="font-weight-bold"><p class="text-success">販売中</p></td>
