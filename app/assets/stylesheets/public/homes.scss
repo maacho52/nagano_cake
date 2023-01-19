@@ -7,6 +7,11 @@
   box-sizing: border-box;
  }
 
- .col-md-10 {
+ .top-heading {
+  width: 100%;
+  height: 200px;
+  background-image: url(app/assets/images/top_bgimage.jpg);
+  background-position: center;
+  background-size: cover;
 
  }
