@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
   namespace :public do
     #get 'cart_items/index'
   end
