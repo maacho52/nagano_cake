@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :customers
   namespace :public do
     #get 'cart_items/index'
-  end
-  namespace :public do
-    #get 'items/index'
-    #get 'items/show'
   end
   devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -15,10 +10,21 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     #get 'orders/new'
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :destroy, :create]
+
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    
+    post 'orders/check' => 'orders#check'
+    get 'order/complete' => 'orders#complete'
+    
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all' 
   end
   namespace :admin do
    # get 'genres' => 'genres#index'
@@ -30,4 +36,6 @@ Rails.application.routes.draw do
     resources :items
     resources :customers
   end
+
+  devise_for :customers
 end
