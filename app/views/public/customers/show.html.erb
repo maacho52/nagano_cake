@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <h3>マイページ</h3>
+    <div class="col">
+      <div class="heading">
+        <span class="maypage_heading"><strong>登録情報</strong></span>
+        <%= link_to "編集する", customers_information_edit_path(@customer), class: "btn btn-sm btn-success" %>
+      </div>
+
+      <table>
+        <tbody>
+          <tr>
+            <th class="table-active">氏名</th>
+            <td class="maypage-list">
+              <%= @customer.last_name %> <%= customer.first_name %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="table-active">カナ</th>
+            <td class="maypage-list">
+              <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="table-active">郵便番号</th>
+            <td class="maypage-list">
+              <%= @customer.postal_code %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="table-active">住所</th>
+            <td class="maypage-list">
+              <%= @customer.address %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="table-active">電話番号</th>
+            <td class="maypage-list">
+              <%= @customer.telephone_number %>
+            </td>
+          </tr>
+          <tr>
+
+            <th class="table-active">メールアドレス</th>
+            <td class="maypage-list">
+              <%= @customer.email %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="heading">
+        <span class="maypage_heading"><strong>配送先</strong></span>
+        <%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary" %>
+      </div>
+
+      <div class="heading">
+        <span class="maypage_heading"><strong>注文履歴</strong></span>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %>
+      </div>
+
+    </div>
+  </div>
+</div>
