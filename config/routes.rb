@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     #get 'orders/new'
-    resources :orders, only: [:new, :index, :show, :create]
+    resources :orders, only: [:new, :show, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :destroy, :create]
@@ -20,13 +20,14 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdraw' => 'customers#withdraw'
-    
+
     post 'orders/check' => 'orders#check'
     get 'order/complete' => 'orders#complete'
-    
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all' 
+
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
   namespace :admin do
+    root to: 'homes#top'
    # get 'genres' => 'genres#index'
     #post 'genres' => 'genres#create'
     #get 'genres/:id/edit' => 'genres#edit', as: 'edit_admin'
