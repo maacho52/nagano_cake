@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>注文履歴一覧</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="font-weight-bold">購入日時</th>
+              <th class="font-weight-bold">購入者</th>
+              <th class="font-weight-bold">注文個数</th>
+              <th class="font-weight-bold">注文ステータス</th>
+            </tr>
+
+            <tbody>
+              <% @orders.each do |order| %>
+                <tr>
+                  <td>
+                    <%= link_to admin_order_path(order) do %>
+                      <%= order.created_at.to_s(:datetime_jp) %>
+                    <% end %>
+                  </td>
+                  <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+                  <td><%= oreder.order_details.sum(:amount) %></td>
+                  <td><%= order.orer_status %></td>
+                </tr>
+            </tbody>
+          </thead>
+        </table>
+
+        <%= paginate @orders %>
+
+    </div>
+  </div>
+</div>
