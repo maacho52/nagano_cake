@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+.name-label {
+  display: inline-block;
+  text-align: left;
+  width: 120px;
+}
+
+.name-kanji-label {
+  margin-right: 10px;
+}
+
+.name-kanji-label-mei {
+  margin-right: 18px;
+}
+
+.kana-name-label {
+  display: inline-block;
+  text-align: left;
+  width: 110px;
+}
+
+.name-kana-label {
+  margin-right: 8px;
+}
+
+label{
+    display: inline-block;
+    text-align: left;
+    width: 200px;
+}
+
+.actions-login {
+  text-align: center;
+}
