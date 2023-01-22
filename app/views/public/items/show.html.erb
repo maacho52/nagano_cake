@@ -1,2 +1,32 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- ジャンル検索機能 -->
+    </div>
+    <div class="col-md-3">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <strong><%= @item.name %></strong><br>
+
+      <div class="introduction">
+        <%= @item.introduction %>
+      </div>
+
+      <div class="item-price">
+        ￥<%= (@item.price * 1.10).floor.to_s(:delimeted) %><p class="tax">(税込)</p>
+      </div>
+
+      <div class="amount">
+        <%= form_with model: @item, url: cart_items_path, do |f| %>
+          <%= f.collection_select :amount, @amount, :id, :amount, { prompt: "選択してください" } %>
+        <%= link_to 'カートに入れる', cart_items_path, class: "btn btn-sm btn-succcess" %>
+      </div>
+    </div>
+  </div>
+</div>
