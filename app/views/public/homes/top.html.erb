@@ -21,13 +21,13 @@
     <div class="col-md-2"></div>
     <div class="col">
       <h4><strong>新着商品</strong></h4>
-      <% @item.each do |item| %>
+      <% @items.each do |item| %>
         <% link_to admin_item_path(item.id) do %>
-          <%= image_tag.item.image %>
+          <%= image_tag item.image, size: "200x200" %>
         <% end %><br>
 
         <strong><%= item.name %></strong><br>
-        <strong>￥<%= item.(price *1.1).floor.to_s(:delimited) %></strong>
+        <strong>￥<%= (item.price * 1.10).floor.to_s(:delimited) %></strong>
       <% end %>
 
       <div class="link-all-items">
