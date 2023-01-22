@@ -9,29 +9,29 @@
       <% end %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
           <div>
-            <strong class="label">商品名       </strong>
+            <strong class="item-show-label">商品名       </strong>
             <span><%= @item.name %></span>
           </div>
 
           <div>
-            <strong class="label">商品説明     </strong>
+            <strong class="item-show-label">商品説明     </strong>
             <span><%= @item.introduction %></span>
           </div>
 
           <div>
-            <strong class="label">ジャンル     </strong>
+            <strong class="item-show-label">ジャンル     </strong>
             <span><%= @item.genre.name %></span>
           </div>
 
           <div>
-            <strong class="label">税込み価格<br>（税抜き価格）</strong>
+            <strong class="item-show-label">税込み価格<br>(税抜き価格)</strong>
             <span><%= (@item.price * 1.10).floor.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)</span>
           </div>
 
           <div>
-            <strong class="label">販売ステータス</strong>
+            <strong class="item-show-label">販売ステータス</strong>
             <span><% if @item.is_active == true %>
                     <strong><p class="text-success">販売中</p></strong>
                   <% else %>
@@ -40,7 +40,7 @@
             </span>
           </div>
     </div>
-    <div class="col-md-5"></div>
+    <div class="col-md-3"></div>
   </div>
 
   <div class="row">

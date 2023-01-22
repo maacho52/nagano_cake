@@ -37,10 +37,16 @@
   margin-right: 8px;
 }
 
-label{
+.item-label{
     display: inline-block;
     text-align: left;
-    width: 200px;
+    width: 100px;
+}
+
+.item-show-label {
+    display: inline-block;
+    text-align: left;
+    width: 120px;
 }
 
 .actions-login {
