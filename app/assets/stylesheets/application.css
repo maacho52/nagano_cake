@@ -37,18 +37,6 @@
   margin-right: 8px;
 }
 
-.item-label{
-    display: inline-block;
-    text-align: left;
-    width: 100px;
-}
-
-.item-show-label {
-    display: inline-block;
-    text-align: left;
-    width: 120px;
-}
-
 .actions-login {
   text-align: center;
 }
