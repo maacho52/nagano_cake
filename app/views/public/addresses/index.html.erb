@@ -5,21 +5,33 @@
       <%= form_with model: @addresses, url: addresses_path, do |f| %>
         <label><p class="addresses-label">郵便番号</p></label>
         <%= f.text_field :postal_code %><br>
-        
+
         <label><p class="addresses-label">住所</p></label>
         <%= f.text_field :address %><br>
-        
+
         <label><p class="addresses-label">宛名</p></label>
         <%= f.text_field :name %>
-        
+
         <%= f.submit '新規登録', addresses_path, class: "btn btn-sm btn-success w-50% mr-auto" %>
-        
+
         <table>
           <tr>
-            <th class=""></th>
+            <th class="table table-borderd table-active">郵便番号</th>
+            <th class="table table-borderd table-active">住所</th>
+            <th class="table table-borderd table-active">宛名</th>
+            <th class="table table-borderd table-active" colespan="1"></th>
           </tr>
+
+          <% @addresses.each do |address| %>
+            <tr>
+              <th><%= address.postal_code %></th>
+              <th><%= address.address %></th>
+              <th><%= address.name %></th>
+              <th><%= link_to '編集する', edit_address_path(address), class: "btn btn-sm btn-success" %></th>
+              <th><%= link_to '削除する', address_path(address), class: "btn btn-sm btn-success" %></th>
+            </tr>
         </table>
-      
+
     </div>
   </div>
 </div>
