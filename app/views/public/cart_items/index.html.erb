@@ -1,2 +1,40 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>ショッピングカード</h3>
+    </div>
+    <div class="col">
+      <%= link_to 'カートを空にする', cart_items_destroy_all_path, class: "btn btn-sm btn-danger mr-auto" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="table-active">商品名</th>
+            <th class="table-active">単価(税込)</th>
+            <th class="table-active">数量</th>
+            <th class="table-active">小計</th>
+            <th class="table-active" colespan="1"></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= cart_item.item.name %></td>
+              <td><%= (cart_item.item.price * 1.10).floor.to_s(:delimited) %></td>
+              <td>
+                <%= form_with model: cart_items, url: cart_items_path(cart_item) do |f| %>
+                  <%= f.number_field :amount, min: 1 %> <%= f.submit '変更' %>
+                <% end %>  
+              </td>
+              <td><%= </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
