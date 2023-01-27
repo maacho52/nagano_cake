@@ -6,11 +6,13 @@
       </h3>
       <nav class="navbar">
             <ul class="nav navbar-nav mr-auto">
-              <% if admin_signed_in? %>
+              <div class="btn-group">
+                <% if admin_signed_in? %>
+                
                  <li class="nav-item">
                    <%= link_to '商品一覧', admin_items_path, class: "btn btn-sm btn-light" %>
                  </li>
-
+                 
                  <li class="nav-item">
                    <%= link_to '会員一覧', admin_customers_path, class: "btn btn-sm btn-light" %>
                  </li>
@@ -27,7 +29,7 @@
                    <%= link_to 'ログアウト', destroy_admin_session_path, class: "btn btn-sm btn-light" %>
                  </li>
                  
-              <% elsif customer_signed_in? %>
+                <% elsif customer_signed_in? %>
                  <li class="nav-item">
                    <%= link_to 'マイページ', customer_mypage_path, class: "btn btn-sm btn-light" %>
                  </li>
@@ -43,7 +45,7 @@
                  <li class="nav-item">
                    <%= link_to 'ログアウト', destroy_customer_session_path, class: "btn btn-sm btn-light" %>
                  </li>
-              <% else %>
+                <% else %>
                  <li class="nav-item">
                    <%= link_to 'About', about_path, class: "btn btn-sm btn-light" %>
                  </li>
@@ -60,7 +62,8 @@
                    <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-sm btn-light" %>
                  </li>
               
-              <% end %>
+                <% end %>
+              </div>  
             </ul>
       </nav>
     </div>
