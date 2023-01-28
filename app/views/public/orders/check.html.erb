@@ -53,7 +53,11 @@
       <%= @order.payment_method %><br>
       
       <label>お届け先</label>
-      <%= @order.postal_code %> <%= @order.address %>
+      <%= @order.postal_code %> <%= @order.address %><br>
+      
+      <div class="button">
+        <%= link_to '注文を確定する', %>
+      </div>
     </div>
   </div>
 </div>
