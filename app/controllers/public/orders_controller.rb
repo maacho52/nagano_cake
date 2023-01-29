@@ -7,6 +7,8 @@ class Public::OrdersController < ApplicationController
   def check
     @cart_items = current_customer.cart_items.all
     @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
   
   def create
