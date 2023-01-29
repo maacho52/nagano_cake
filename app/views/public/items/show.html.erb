@@ -24,8 +24,10 @@
 
       <div class="amount">
         <%= form_with model: @item, url: cart_items_path, do |f| %>
-          <%= f.collection_select :amount, @amount, :id, :amount, { prompt: "選択してください" } %>
-        <%= link_to 'カートに入れる', cart_items_path, class: "btn btn-sm btn-succcess" %>
+          <%= f.select_tag :amount, options_for_select((1..50).to_a), placeholder "選択してください" %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.submit 'カートに入れる', class: "btn btn-sm btn-succcess" %>
+        <% end %>  
       </div>
     </div>
   </div>
