@@ -3,9 +3,11 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @cart_item = Cart_item.new
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @item = Item.find(params[:id])
   end
 
   def create
+    @item = Item.find(cart_item_params[:item_id])
     @cart_item = current_customer.cart_items.new(cart_item_params)
     @cart_item.save
     redirect_to cart_items_path
