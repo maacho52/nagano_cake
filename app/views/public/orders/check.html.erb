@@ -19,9 +19,9 @@
                 <%= image_tag cart_item.item.image size: "50×25" %>
                 <%= cart_item.item.name %>
               </td>
-              <td><%= (cart_item.item.price * 1.10).floor.to_s(:delimited) %></td>
+              <td><%= cart_item.with_tax_price.to_s(:delimited) %></td>
               <td><%= cart_item.item.amount %></td>
-              <td><%= (catrt_item.item.price * cart_item.item.amount * 1.10).floor.to_s(:delimited) %></td>
+              <td><%= catrt_item.subtotal.to_s(:delimited) %></td>
             </tr>
           </tbody>
         </table>
