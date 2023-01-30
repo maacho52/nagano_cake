@@ -5,11 +5,6 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @amount = 0
-    while @amount <= 50 do
-      p @amount
-      @amount += 1
-    end
   end
 
   private
