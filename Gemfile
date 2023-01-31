@@ -59,3 +59,5 @@ gem 'devise'
 
 # 最後の行に追加
 gem 'kaminari'
+
+gem "enum_help"
