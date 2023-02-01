@@ -61,3 +61,5 @@ gem 'devise'
 gem 'kaminari'
 
 gem "enum_help"
+
+gem 'pry-byebug', group: :development
