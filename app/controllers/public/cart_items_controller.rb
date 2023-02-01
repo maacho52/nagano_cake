@@ -1,9 +1,9 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items.all
-    @cart_item = Cart_item.new
+    #@cart_item = Cart_item.new
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-    @item = Item.find(params[:id])
+    #@item = Item.find(params[:id])
   end
 
   def create
@@ -50,7 +50,7 @@ class Public::CartItemsController < ApplicationController
 
   private
 
-  def cart_item_params
+  def params_cart_item
     params.require(:cart_item).permit(:item_id, :amount)
   end
 end
