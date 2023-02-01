@@ -7,9 +7,10 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.find(cart_item_params[:item_id])
     @cart_item = current_customer.cart_items.new(cart_item_params)
-    
+
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       cart_item = current_customer.cart_item.find_by(item_id: params[:cart_item][:item_id])
       cart_item.amount += params[:cart_item][:amount].to_i
@@ -30,7 +31,7 @@ class Public::CartItemsController < ApplicationController
 
   def update
     @cart_item = Cart_item.find(params[:id])
-    #if 
+    #if
        #数量など更新された場合
     #elsif
       #カート内商品がすべてなくなった場合
