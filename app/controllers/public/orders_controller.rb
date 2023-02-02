@@ -9,15 +9,31 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_cost = 800
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-  end
+    
+    if params[:order][:select_address] == "0"
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.first_name + current_customer.last_name
+    elsif params[:order][:select_address] == "1"  
+      @address = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:select_address] == "2"
+      @order.customer_id = current_customer.id
+    end
+    @order = Order.new
+    render check
+  end  
 
   def create
-    @cart_item = Cart_item.find(params[:id])
+    @order = Order.new(order_params)
+    
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :order_status, :select_address)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :select_address)
   end
 end
