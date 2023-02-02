@@ -9,12 +9,12 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_cost = 800
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-    
+
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-    elsif params[:order][:select_address] == "1"  
+    elsif params[:order][:select_address] == "1"
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
@@ -24,11 +24,11 @@ class Public::OrdersController < ApplicationController
     end
     @order = Order.new
     render check
-  end  
+  end
 
   def create
     @order = Order.new(order_params)
-    
+    redirect_to order_complete_path
   end
 
   private
