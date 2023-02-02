@@ -37,8 +37,8 @@ class Public::CartItemsController < ApplicationController
     elsif @cart_item.update(amount: params[:cart_item][:amount])##カート内商品の個数が変わった
       redirect_to cart_items_path
     else
-
-    #end
+      #render index
+    end  
   end
 
   def destroy
@@ -56,4 +56,5 @@ class Public::CartItemsController < ApplicationController
   def params_cart_item
     params.require(:cart_item).permit(:item_id, :amount)
   end
+  
 end
