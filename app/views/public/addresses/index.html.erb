@@ -2,7 +2,7 @@
   <div class="row">
     <h3>配送先登録/一覧</h3>
     <div class="col">
-      <%= form_with model: @addresses, url: addresses_path, do |f| %>
+      <%= form_with model: @addresses, url: addresses_path do |f| %>
         <label><p class="addresses-label">郵便番号</p></label>
         <%= f.text_field :postal_code %><br>
 
@@ -13,7 +13,7 @@
         <%= f.text_field :name %>
 
         <%= f.submit '新規登録', addresses_path, class: "btn btn-sm btn-success w-50% mr-auto" %>
-
+      <% end %>
         <table>
           <tr>
             <th class="table table-borderd table-active">郵便番号</th>
@@ -30,8 +30,8 @@
               <th><%= link_to '編集する', edit_address_path(address), class: "btn btn-sm btn-success" %></th>
               <th><%= link_to '削除する', address_path(address), class: "btn btn-sm btn-success" %></th>
             </tr>
+          <% end %>
         </table>
-
     </div>
   </div>
 </div>
