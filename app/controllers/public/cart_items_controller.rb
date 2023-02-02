@@ -31,16 +31,19 @@ class Public::CartItemsController < ApplicationController
 
   def update
     @cart_item = Cart_item.find(params[:id])
-    #if
-       #数量など更新された場合
-    #elsif
-      #カート内商品がすべてなくなった場合
+    if params[:cart_item][:amount] == "0"
+      @cart_item.destroy　##カートに商品がない場合カート削除
+      redirect_to cart_items_path
+    elsif @cart_item.update(amount: params[:cart_item][:amount])##カート内商品の個数が変わった
+      redirect_to cart_items_path
+    else
 
     #end
   end
 
   def destroy
-
+    current_customer.cart_items.find(params[:id]).destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all
