@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <h3>注文履歴詳細</h3>
+    <div class="col">
+      <h5>注文情報</h5>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table-secondary">注文日</th>
+            <td><%= @order.created_at %></td>
+          </tr>
+
+          <tr>
+            <th class="table-secondary">配送先<th>
+              <td><%= @order.address.address_display %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
