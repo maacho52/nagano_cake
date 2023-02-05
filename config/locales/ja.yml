@@ -14,3 +14,13 @@
           making: "製作中"
           preparing: "発送準備中"
           shipped: "発送済み"
+
+  ja:
+    enums:
+      order:
+        order_status:
+          impossible: "製作不可"
+          waiting: "製作待ち"
+          paid_ip: "入金確認"
+          making: "製作中"
+          completed: "製作完了"
