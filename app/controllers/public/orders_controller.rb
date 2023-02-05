@@ -1,4 +1,9 @@
 class Public::OrdersController < ApplicationController
+
+  def index
+    @orders= current_customer.orders.all
+  end
+
   def new
     @order = Order.new
     @customer = current_customer
