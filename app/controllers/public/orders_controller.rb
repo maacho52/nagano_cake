@@ -6,6 +6,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.order.find(params[:id])
+    @total = 0
+    shipping_cost = 800
   end
 
   def new
