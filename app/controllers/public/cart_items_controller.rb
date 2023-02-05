@@ -4,6 +4,7 @@ class Public::CartItemsController < ApplicationController
     #@cart_item = Cart_item.new
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
     #@item = Item.find(params[:id])
+    @total = 0
   end
 
   def create
@@ -38,7 +39,7 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     else
       #render index
-    end  
+    end
   end
 
   def destroy
@@ -56,5 +57,5 @@ class Public::CartItemsController < ApplicationController
   def params_cart_item
     params.require(:cart_item).permit(:item_id, :amount)
   end
-  
+
 end
