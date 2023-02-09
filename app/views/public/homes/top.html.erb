@@ -4,7 +4,7 @@
 
     </div>
     <div class="col-md-8">
-      <div class="top-heading">
+      <div class="top-heading d-flex align-items-center justify-content-center">
         <p class="top-text">
           ようこそ、ながのCAKEへ！<br>
            このサイトは、ケーキ販売のECサイトになります。<br>
@@ -19,20 +19,30 @@
 
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col">
+    
+    <div class="newitem-heading">
       <h4><strong>新着商品</strong></h4>
-      <% @items.each do |item| %>
-        <% link_to admin_item_path(item.id) do %>
-          <%= image_tag item.image, size: "200x200" %>
-        <% end %><br>
-
-        <strong><%= item.name %></strong><br>
-        <strong>￥<%= (item.price * 1.10).floor.to_s(:delimited) %></strong>
-      <% end %>
-
-      <div class="link-all-items">
-        <%= link_to '全ての商品を見る＞', items_path %>
-      </div>
     </div>
+    
   </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+      <% @items.each do |item| %>
+        <div class="col-md-2">
+          <%= link_to admin_item_path(item.id) do %>
+            <%= image_tag item.image, size: "100x100" %>
+          <% end %><br>
+
+
+          <strong><%= item.name %></strong><br>
+          <strong>￥<%= (item.with_tax_price).to_s(:delimited) %></strong><br>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="link-all-items text-right">
+    <%= link_to '全ての商品を見る＞', items_path %>
+  </div>
+
 </div>

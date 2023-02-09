@@ -8,8 +8,12 @@
  }
 
  .top-heading {
-  height: 200px;
-  background-image: image-url('top_pgimage.png');
+  height: 250px;
+  background-image: image-url('top_bgimage.jpg');
   background-position: center;
-  backgrouns-size: cover;
+  background-size: 100%;
+ }
+ 
+ .newitem-heading {
+   margin: 20px;
  }
