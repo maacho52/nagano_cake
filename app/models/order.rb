@@ -8,5 +8,5 @@ class Order < ApplicationRecord
   enum order_status: { waiting: 0, paid_up: 1, making: 2, preparing: 3, shipped: 4 }
 
   # 製造ステータス（0=製作不可 / 1=製作待ち / 2=製作中 / 3=製作完了 ）
-  enum making_status: { impossible: 0, waiting: 1, making: 2, completed: 3 }
+  enum making_status: { impossible: 0, production_waiting: 1, production_making: 2, completed: 3 }
 end
