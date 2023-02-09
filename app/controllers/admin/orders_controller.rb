@@ -5,10 +5,6 @@ class Admin::OrdersController < ApplicationController
     @order_details = @order.order_details
   end
 
-  def index
-    @orders = Orders.all.page(params[:page]).per(10)
-  end
-
   private
 
   def order_params
