@@ -40,3 +40,18 @@
 .actions-login {
   text-align: center;
 }
+
+header {
+  border-bottom: solid 1px black;
+}
+
+.main {
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  border-top: solid 1px black;
+}
