@@ -15,7 +15,6 @@ class Public::CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.new(cart_item_params)
 
     if current_customer.cart_items.find_by(item_id: params[:item_id]).present?
-  # if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       cart_item = current_customer.cart_item.find_by(item_id: params[:cart_item][:item_id])
       cart_item.amount += params[:cart_item][:amount].to_i
       cart_item.save
@@ -58,8 +57,8 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.permit(:item_id, :amount)
-    #params.require(:cart_item).permit(:item_id, :amount)
+    #params.require(:item).permit(:item_id, :amount)
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 
 end
