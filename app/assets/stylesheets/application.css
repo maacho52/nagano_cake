@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ /* 顧客側 新規会員登録 */
 .name-label {
   display: inline-block;
   text-align: left;
@@ -41,6 +43,30 @@
   text-align: center;
 }
 
+.email-field {
+  margin-left: 88px;
+}
+
+.postal-code {
+  margin-left: 30px;
+}
+
+.address {
+  margin-left: 167px;
+}
+
+.telephone-number {
+  margin-left: 30px;
+}
+
+.password {
+  margin-left: 37px;
+}
+
+.confirm-password {
+  margin-left: 62px; 
+}
+/* 共通レイアウト */
 header {
   border-bottom: solid 1px black;
 }

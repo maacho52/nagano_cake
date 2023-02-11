@@ -1,9 +1,11 @@
 <div class="container">
+    <div class="error-messages">
+      <%= render "public/shared/error_messages", resource: resource %>
+    </div>
   <h3>新規会員登録</h3>
   <div class="row">
     <div class="col">
       <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
 
         <div class="field">
           <%= f.label '名前', class: "name-label" %>
@@ -19,32 +21,32 @@
 
         <div class="field">
           <%= f.label 'メールアドレス' %>
-          <%= f.email_field :email, autocomplete: "sample@example.com" %>
+          <span class="email-field"><%= f.email_field :email, autocomplete: "sample@example.com" %></span>
         </div>
 
         <div class="field">
           <%= f.label '郵便番号(ハイフンなし)' %>
-          <%= f.text_field :postal_code, autocomplete: "0000000" %>
+          <span class="postal-code"><%= f.text_field :postal_code, autocomplete: "0000000" %></span>
         </div>
 
         <div class="field">
           <%= f.label '住所' %>
-          <%= f.text_field :address, autocomplete: "東京都渋谷区代々木神園町0-0" %>
+          <span class="address"><%= f.text_field :address, autocomplete: "東京都渋谷区代々木神園町0-0" %></span>
         </div>
 
         <div class="field">
           <%= f.label '電話番号(ハイフンなし)' %>
-          <%= f.text_field :telephone_number, autocomplete: "00000000000" %>
+          <span class="telephone-number"><%= f.text_field :telephone_number, autocomplete: "00000000000" %></span>
         </div>
 
         <div class="field">
           <%= f.label 'パスワード(6文字以上)' %>
-          <%= f.password_field :password %>
+          <span class="password"><%= f.password_field :password %></span>
         </div>
 
         <div class="field">
           <%= f.label 'パスワード(確認用)' %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <span class="confirm-password"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></span>
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
