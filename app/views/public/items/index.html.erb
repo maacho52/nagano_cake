@@ -10,7 +10,7 @@
               <%= image_tag item.image, size: '150x100' %><br>
             <% end %>
             <%= item.name %><br>
-            ￥<%= (item.with_tax_price).floor.to_s(:delimeted) %>
+            ￥<%= (item.with_tax_price).to_s(:delimeted) %>
           </div>
        <% end %>
       </div>
