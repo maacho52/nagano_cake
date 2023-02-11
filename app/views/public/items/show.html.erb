@@ -23,7 +23,7 @@
       </div>
 
       <div class="amount">
-        <%= form_with model: Item.new, url: cart_items_path, method: :post do |f| %>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
           <%= f.select :amount, *[1..3], :placeholder => "選択してください" %>
           <%= f.hidden_field :item_id, value: @item.id %>
           <%= f.submit 'カートに入れる', class: "btn btn-sm btn-succcess" %>
