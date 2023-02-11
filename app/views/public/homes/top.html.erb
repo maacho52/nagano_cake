@@ -14,35 +14,34 @@
       </div>
     </div>
 
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
   </div>
 
   <div class="row">
     <div class="col-md-2"></div>
-    
+
     <div class="newitem-heading">
       <h4><strong>新着商品</strong></h4>
     </div>
-    
+
   </div>
 
   <div class="row">
     <div class="col-md-2"></div>
+
       <% @items.each do |item| %>
         <div class="col-md-2">
           <%= link_to admin_item_path(item.id) do %>
-            <%= image_tag item.image, size: "100x100" %>
+            <%= image_tag item.image, size: "150x100" %>
           <% end %><br>
-
-
           <strong><%= item.name %></strong><br>
           <strong>￥<%= (item.with_tax_price).to_s(:delimited) %></strong><br>
         </div>
       <% end %>
   </div>
-
+  
   <div class="link-all-items text-right">
-    <%= link_to '全ての商品を見る＞', items_path %>
+      <%= link_to '全ての商品を見る＞', items_path %>
   </div>
 
 </div>
