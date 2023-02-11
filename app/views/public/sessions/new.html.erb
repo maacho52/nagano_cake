@@ -3,22 +3,27 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col">
-      <h5>会員の方はこちらからログイン</h5>
-      <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
-        <div class="field">
-          <%= f.label 'メールアドレス' %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "sample@example.com", :size=>"40" %>
-        </div>
+      <div class="rogin-heading pb-3">
+        <h5>会員の方はこちらからログイン</h5>
+      </div>
+       <!--d-flex justify-content-center 中央寄せ -->
+      <div class="rogin-filed d-flex justify-content-center mb-5">
+        <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
+          <div class="field mb-3">
+            <%= f.label 'メールアドレス' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "sample@example.com", :size=>"40" %>
+          </div>
 
-        <div class="field">
-          <%= f.label 'パスワード' %>
-          <%= f.password_field :password, :size=>"40" %>
-        </div>
+          <div class="field mb-4">
+            <%= f.label 'パスワード' %>
+            <span class="ml-4"><%= f.password_field :password, :size=>"40" %></span>
+          </div>
 
-        <div class="actions-login">
-          <%= f.submit "ログイン", class: "btn btn-sm btn-primary w-25" %>
-        </div>
-      <% end %>
+          <div class="actions-login">
+            <%= f.submit "ログイン", class: "btn btn-sm btn-primary w-25" %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-2"></div>
   </div>
@@ -27,10 +32,10 @@
     <div class="col-md-1"></div>
     <div class="col">
       <h5>会員登録がお済でない方</h5>
-      <%= link_to 'こちら', new_customer_registration_path %>　から新規登録を行ってください。
+      <div class="sign_up d-flex justify-content-center">
+        <%= link_to 'こちら', new_customer_registration_path %><span class="ml-3">から新規登録を行ってください。</span>
+      </div>  
     </div>
-    <div class="col-md-2">
-      <%= render "public/shared/links" %>
-    </div>
+
   </div>
 </div>
