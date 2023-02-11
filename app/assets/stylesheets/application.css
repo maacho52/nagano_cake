@@ -66,6 +66,10 @@
 .confirm-password {
   margin-left: 62px; 
 }
+
+.customer-login {
+  margin-left: 100px;
+}
 /* 共通レイアウト */
 header {
   border-bottom: solid 1px black;
