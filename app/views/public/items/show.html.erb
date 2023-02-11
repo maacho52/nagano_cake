@@ -19,12 +19,12 @@
       </div>
 
       <div class="item-price">
-        ￥<%= (@item.price * 1.10).floor.to_s(:delimeted) %><p class="tax">(税込)</p>
+        ￥<%= (@item.with_tax_price).to_s(:delimeted) %><p class="tax">(税込)</p>
       </div>
 
       <div class="amount">
-        <%= form_with model: @item, url: cart_items_path do |f| %>
-          <%= f.select :amount, *[1..30], placeholder "選択してください" %>
+        <%= form_with model: Item.new, url: cart_items_path, method: :post do |f| %>
+          <%= f.select :amount, *[1..3], :placeholder => "選択してください" %>
           <%= f.hidden_field :item_id, value: @item.id %>
           <%= f.submit 'カートに入れる', class: "btn btn-sm btn-succcess" %>
         <% end %>
