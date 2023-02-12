@@ -18,9 +18,8 @@
   ja:
     enums:
       order:
-        order_status:
+        making_status:
           impossible: "製作不可"
-          waiting: "製作待ち"
-          paid_ip: "入金確認"
-          making: "製作中"
+          production_waiting: "製作待ち"
+          production_making: "製作中"
           completed: "製作完了"
