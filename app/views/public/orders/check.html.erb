@@ -16,12 +16,12 @@
             <% @cart_items.each do |cart_item| %>
               <tr>
                 <td>
-                  <%= image_tag cart_item.item.image size: "50×25" %>
+                  <%= image_tag cart_item.item.image, size: "50×25" %>
                   <%= cart_item.item.name %>
                 </td>
-                <td><%= cart_item.with_tax_price.to_s(:delimited) %></td>
-                <td><%= cart_item.item.amount %></td>
-                <td><%= catrt_item.subtotal.to_s(:delimited) %></td>
+                <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+                <td><%= cart_item.amount %></td>
+                <td><%= cart_item.subtotal.to_s(:delimited) %></td>
               </tr>
             <% end %>
           </tbody>
@@ -49,7 +49,7 @@
                 <th>請求金額</th>
                 <td>
                   <%= @order.total_payment %>
-                  <%= f.hidden_field :total_payment value: @order.total_payment %>
+                  <%= f.hidden_field :total_payment, value: @order.total_payment %>
                 </td>
               </tr>
             </tbody>
