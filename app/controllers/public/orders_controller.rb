@@ -7,6 +7,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+    @addresses = current_customer.addresses
   end
 
   def check
@@ -28,7 +29,7 @@ class Public::OrdersController < ApplicationController
       @order.customer_id = current_customer.id
     end
     @order = Order.new
-    render check
+    render :check
   end
 
   def create
@@ -46,7 +47,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.destroy_all
       redirect_to order_complete_path
     else
-      render new
+      render :new
     end
   end
 
@@ -61,6 +62,10 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name)
-    #params.require(:order).permit(:payment_method, :postal_code, :address, :name, :address_id,:select_address)
+    #params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+  end
+
+  def address_params
+    params.require(:address).permit(:customer_id, :name, :postal_code, :address)
   end
 end
