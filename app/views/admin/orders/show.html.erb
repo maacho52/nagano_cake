@@ -41,7 +41,7 @@
         <tbody>
           <% @order_details.each do |order_detail| %>
             <tr>
-              <td><%= order_detail.items.name %></td>
+              <td><%= order_detail.item.name %></td>
               <td><%= order_detail.with_tax_price.to_s(:delimited) %></td>
               <td><%= order_detail.amount %></td>
               <td><%= order_detail.subtotal.to_s(:delimited) %></td>
