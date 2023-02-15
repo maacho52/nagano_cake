@@ -18,3 +18,17 @@
 .name-text-field {
   margin-left: 138px;  
 }
+
+// 注文履歴一覧画面
+.layout-order-index {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th.top {
+  width: 100px;
+}
+
+th.second {
+  width: 200px;
+}
