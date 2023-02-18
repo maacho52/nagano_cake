@@ -15,10 +15,10 @@
       <% end %>
         <table class="table table-bordered">
           <tr>
-            <th class="table table-borderd table-active">郵便番号</th>
-            <th class="table table-borderd table-active">住所</th>
-            <th class="table table-borderd table-active">宛名</th>
-            <th class="table table-borderd table-active" colespan="1"></th>
+            <th class="table table-borderd table-active adddress-index-top">郵便番号</th>
+            <th class="table table-borderd table-active address-index-second">住所</th>
+            <th class="table table-borderd table-active address-index-third">宛名</th>
+            <th class="table table-borderd table-active address-index-forth" colespan="1"></th>
           </tr>
 
           <% @addresses.each do |address| %>
@@ -27,11 +27,12 @@
               <th><%= address.address %></th>
               <th><%= address.name %></th>
               <th><%= link_to '編集する', edit_address_path(address), class: "btn btn-sm btn-success" %>
-                  <%= link_to '削除する', address_path(address), class: "btn btn-sm btn-success" %>
+                  <%= link_to '削除する', address_path(address), class: "btn btn-sm btn-danger" %>
               </th>
             </tr>
           <% end %>
         </table>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
