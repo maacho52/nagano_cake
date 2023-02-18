@@ -11,7 +11,7 @@
       <nav class="navbar">
         <div class="container">
           <%= link_to 'LOGO', root_path %>
-            
+
           <div class="nav">
             <ul class="nav navbar-nav me-auto">
               <div class="btn-group float-end">
@@ -51,7 +51,7 @@
                  </li>
 
                  <li class="nav-item">
-                   <%= link_to 'ログアウト', destroy_customer_session_path, class: "btn btn-sm btn-light" %>
+                   <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-sm btn-light" %>
                  </li>
                 <% else %>
                  <li class="nav-item">
@@ -73,8 +73,8 @@
                 <% end %>
               </div>
             </ul>
-          </div>  
-        </div>    
+          </div>
+        </div>
       </nav>
       <!--</div>
     </div>
