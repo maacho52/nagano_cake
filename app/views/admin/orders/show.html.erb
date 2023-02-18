@@ -4,22 +4,22 @@
     <div class="col">
       <strong>購入者</strong>
       <%= link_to admin_customer_path(@order) do %>
-        <%= @order.last_name %> <%= @order.first_name %>
+        <%= @order.name %>
       <% end %><br>
 
       <strong>注文日</strong>
       <%= @order.created_at %><br>
 
       <strong>配送先</strong>
-      <%= @order.postal_code %> <%= @order.address %> <%= @order.name %><br>
+      <%= @order.postal_code %> <%= @order.address %><br><%= @order.name %>
 
       <strong>支払方法</strong>
       <%= @order.payment_method %>
 
       <strong>注文ステータス</strong>
-      <%= from_with model: @order, url: admin_order_path(@order), local: true do |f| %>
-        <%= f.select :order_status, @order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
-        <%= f.submit "更新" class: 'btn btn-sm btn-success' %>
+      <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
+        <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
+        <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
       <% end %>
 
     </div>
@@ -42,16 +42,17 @@
           <% @order_details.each do |order_detail| %>
             <tr>
               <td><%= order_detail.item.name %></td>
-              <td><%= order_detail.with_tax_price.to_s(:delimited) %></td>
+              <td><%= (order_detail.item.with_tax_price).to_s(:delimited) %></td>
               <td><%= order_detail.amount %></td>
-              <td><%= order_detail.subtotal.to_s(:delimited) %></td>
+              <td><%= (order_detail.amount * order_detail.item.with_tax_price).to_s(:delimited) %></td>
               <td>
-                <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch local: true do |f| %>
-                  <%= f.select :making_status, order_detail.making_status_i18n_invers, {prompt: false}, class: "form-control form-control-sm col-6" %>
+                <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
+                  <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6" %>
                   <%= f.submit "更新", class: "btn btn-sm btn-seccess" %>
                 <% end %>
               </td>
             </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
