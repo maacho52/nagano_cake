@@ -12,6 +12,12 @@
 }
 
 //注文履歴詳細
+
+.layout-order-show {
+  table-layout: fixed;
+  width: 100%;
+}
+
 .order-status {
   width: 100px;
 }
@@ -20,12 +26,11 @@
   display: inline-block;
   width: auto;
 }
-
-label {
-  display: inline-block;
-  text-align: left;
-  width: 7em;
-}
+//label {
+  //display: inline-block;
+  //text-align: left;
+  //width: 7em;
+//}
 
 label.payment {
   display: inline-block;
@@ -33,10 +38,31 @@ label.payment {
   width: 6em;
 }
 
-th.making-status-th {
-  width: 100px;
+
+th.button-th {
+  width: auto;
 }
 
+th.making-status-th,
+.select-form {
+  width: 210px;
+}
+
+th.order-item-name {
+  width: 200px;
+}
+
+th.order-item-price {
+  width: 110px;
+}
+
+th.order-item-amount {
+  width: 70px;
+}
+
+th.order-item-subtotal {
+  width: 70px;
+}
 .payment-box {
   display: flex;
   align-items: flex-end;
