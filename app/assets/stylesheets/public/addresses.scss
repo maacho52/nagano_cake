@@ -1,3 +1,18 @@
 // Place all the styles related to the public/addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+ 
+ //配送先登録・一覧
+ label.addresses-label-address,
+ label.addresses-label-name {
+   margin-right: 190px;
+ }
+ 
+ .new {
+   width: 150px;
+ }
