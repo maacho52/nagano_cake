@@ -7,9 +7,7 @@
   box-sizing: border-box;
  }
 
-label {
-  display: inline-block;
-  text-align: left;
+.customer-label {
   width: 7em;
 }
 
@@ -17,4 +15,15 @@ label {
   display: inline-block;
   text-align: left;
   width: 7em;
+}
+
+.submit-button {
+  display: inline-block;
+  margin-left: 7em;
+  width: 80%;
+}
+
+.withdraw-button {
+  display: inline-block;
+  text-align: left;
 }
