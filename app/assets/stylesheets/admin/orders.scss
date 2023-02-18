@@ -10,3 +10,29 @@
 .table {
   margin-top: 20px;
 }
+
+//注文履歴詳細
+.order-status {
+  width: 100px;
+}
+
+.form_date_select {
+  display: inline-block;
+  width: auto;
+}
+
+label {
+  display: inline-block;
+  text-align: left;
+  width: 7em;
+}
+
+label.payment {
+  display: inline-block;
+  text-align: left;
+  width: 6em;
+}
+
+th.making-status-th {
+  width: 100px;
+}
