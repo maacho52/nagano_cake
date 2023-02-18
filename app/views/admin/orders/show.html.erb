@@ -16,13 +16,13 @@
       <%= @order.name %><br>
 
       <label><strong>支払方法</strong></label>
-      <%= @order.payment_method %><br>
+      <%= @order.payment_method_i18n %><br>
 
       <!--<label><strong>注文ステータス</strong></label>-->
         <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
-              <%= f.label :order_status, "注文ステータス", class: "form_date_select font-weight-bold" %>
-              <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6 order-status form_date_select" %>
-              <%= f.submit "更新", class: 'btn btn-sm btn-success form_date_select' %>
+          <%= f.label :order_status, "注文ステータス", class: "form_date_select font-weight-bold" %>
+          <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6 order-status form_date_select" %>
+          <%= f.submit "更新", class: 'btn btn-sm btn-success form_date_select' %>
         <% end %>
 
     </div>
@@ -30,15 +30,15 @@
 
   <div class="row">
     <div class="col-md-9">
-      <table class="table">
+      <table class="table layout-order-show">
         <thead>
           <tr>
-            <th class="font-weight-bold table-active">商品名</th>
-            <th class="font-weight-bold table-active">単価( 税込 )</th>
-            <th class="font-weight-bold table-active">数量</th>
-            <th class="font-weight-bold table-active">小計</th>
+            <th class="font-weight-bold table-active order-item-name">商品名</th>
+            <th class="font-weight-bold table-active order-item-price">単価( 税込 )</th>
+            <th class="font-weight-bold table-active order-item-amount">数量</th>
+            <th class="font-weight-bold table-active order-item-subtotal">小計</th>
             <th class="font-weight-bold table-active making-status-th">製作ステータス</th>
-            <th class="table-active" colespan = "1"></th>
+            <th class="table-active button-th" colespan = "1"></th>
           </tr>
         </thead>
 
@@ -50,7 +50,7 @@
               <td><%= order_detail.amount %></td>
               <td><%= (order_detail.amount * order_detail.item.with_tax_price).to_s(:delimited) %></td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-                <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6" %></td>
+                <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6 select-form" %></td>
                 <td><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
               <% end %>
             </tr>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="col-md-3 payment-box">
-      <div>
+      <div class="ml-3">
         <label class="payment"><strong>商品合計</strong></label>
         <%= (@order.total_payment - @order.shipping_cost).floor.to_s(:delimited) %>円<br>
 
@@ -69,7 +69,7 @@
 
         <label class="payment"><strong>請求金額合計</strong></label>
         <strong><%= @order.total_payment.floor.to_s(:delimited) %>円</strong>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
