@@ -9,9 +9,9 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-   def create
-     super
-   end
+  #def create
+  #  super
+  # end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -36,7 +36,6 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容3】tureだった場合サインアップ画面に遷移
       redirect_to new_customer_session_path
     else
-      render :create
     end
 
   end
