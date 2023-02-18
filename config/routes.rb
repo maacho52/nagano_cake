@@ -48,5 +48,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres
     resources :items
     resources :customers
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 end
