@@ -10,13 +10,13 @@
       <div class="rogin-filed d-flex justify-content-center mb-5">
         <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
           <div class="field mb-3">
-            <%= f.label 'メールアドレス' %>
+            <%= f.label 'メールアドレス', class: "customer-login" %>
             <%= f.email_field :email, autofocus: true, autocomplete: "sample@example.com", :size=>"40" %>
           </div>
 
           <div class="field mb-4">
-            <%= f.label 'パスワード' %>
-            <span class="ml-4"><%= f.password_field :password, :size=>"40" %></span>
+            <%= f.label 'パスワード', class: "customer-login" %>
+            <%= f.password_field :password, :size=>"40" %>
           </div>
 
           <div class="actions-login">

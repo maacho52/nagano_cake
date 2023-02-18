@@ -85,3 +85,8 @@ footer {
   width: 100%;
   border-top: solid 1px black;
 }
+
+/* 顧客側ログイン画面*/
+.customer-login {
+  width: 7em;
+}
