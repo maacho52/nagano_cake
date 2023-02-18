@@ -6,13 +6,35 @@
   margin: 0;
   box-sizing: border-box;
  }
- 
+
  //配送先登録・一覧
  label.addresses-label-address,
  label.addresses-label-name {
    margin-right: 190px;
  }
- 
+
  .new {
    width: 150px;
+ }
+
+ th.adddress-index-top {
+   width: 50px;
+ }
+
+ th.address-index-second {
+   width: 200px;
+ }
+
+ th.address-index-third {
+   width: 70px;
+ }
+
+ th.address-index-forth {
+   width: 100px;
+ }
+
+ //配送先編集
+ .address-field,
+ .name-field {
+   margin-left: 140px;
  }
