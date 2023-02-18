@@ -16,12 +16,12 @@
                 <tr>
                   <td>
                     <%= link_to admin_order_path(order) do %>
-                      <%= order.created_at.to_s(:datetime_jp) %>
+                      <%= order.created_at.strftime('%Y/%m/%d')  %>
                     <% end %>
                   </td>
                   <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-                  <td><%= oreder.order_details.sum(:amount) %></td>
-                  <td><%= order.orer_status %></td>
+                  <td><%= order.order_details.sum(:amount) %></td>
+                  <td><%= order.order_status %></td>
                 </tr>
               <% end %>
             </tbody>
