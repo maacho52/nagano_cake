@@ -4,10 +4,17 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
   end
+  
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    @order_details = @order.order_details
+    redirect_to admin_order_path
+  end
 
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :portal_code, :address, :name, :shipping_cost)
+    params.require(:order).permit(:order_status)
   end
 end
