@@ -19,7 +19,7 @@
       <%= @order.payment_method %><br>
 
       <!--<label><strong>注文ステータス</strong></label>-->
-        <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
+        <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
               <%= f.label :order_status, "注文ステータス", class: "form_date_select font-weight-bold" %>
               <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6 order-status form_date_select" %>
               <%= f.submit "更新", class: 'btn btn-sm btn-success form_date_select' %>
@@ -59,15 +59,17 @@
       </table>
     </div>
 
-    <div class="col-md-3">
-      <label class="payment"><strong>商品合計</strong></label>
-      <%= (@order.total_payment - @order.shipping_cost).floor.to_s(:delimited) %>円<br>
+    <div class="col-md-3 payment-box">
+      <div>
+        <label class="payment"><strong>商品合計</strong></label>
+        <%= (@order.total_payment - @order.shipping_cost).floor.to_s(:delimited) %>円<br>
 
-      <label class="payment"><strong>送料</strong></label>
-      <%= @order.shipping_cost %>円<br>
+        <label class="payment"><strong>送料</strong></label>
+        <%= @order.shipping_cost %>円<br>
 
-      <label class="payment"><strong>請求金額合計</strong></label>
-      <strong><%= @order.total_payment.floor.to_s(:delimited) %>円</strong>
+        <label class="payment"><strong>請求金額合計</strong></label>
+        <strong><%= @order.total_payment.floor.to_s(:delimited) %>円</strong>
+      </div>  
     </div>
   </div>
 </div>
