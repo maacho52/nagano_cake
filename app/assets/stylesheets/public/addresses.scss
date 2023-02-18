@@ -8,9 +8,16 @@
  }
 
  //配送先登録・一覧
- label.addresses-label-address,
- label.addresses-label-name {
-   margin-right: 190px;
+ label {
+  display: inline-block;
+  text-align: left;
+  width: 7em;
+ }
+ 
+ label.postal_code {
+  display: inline-block;
+  text-align: left;
+  width: 15em;
  }
 
  .new {
