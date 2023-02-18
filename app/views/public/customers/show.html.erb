@@ -1,13 +1,13 @@
 <div class="container">
+  <h3>マイページ</h3>
   <div class="row">
-    <h3>マイページ</h3>
-    <div class="col">
+    <div class="col-md-10">
       <div class="heading">
-        <span class="maypage_heading"><strong>登録情報</strong></span>
+        <span class="mypage_heading"><strong>登録情報</strong></span>
         <%= link_to "編集する", customers_information_edit_path(@customer), class: "btn btn-sm btn-success" %>
       </div>
 
-      <table>
+      <table class="table table-bordered">
         <tbody>
           <tr>
             <th class="table-active">氏名</th>
@@ -53,15 +53,16 @@
         </tbody>
       </table>
       <div class="heading">
-        <span class="maypage_heading"><strong>配送先</strong></span>
-        <%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary" %>
+        <span class="mypage_heading"><strong>配送先</strong></span>
+        <%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary w-60px" %>
       </div>
 
-      <div class="heading">
-        <span class="maypage_heading"><strong>注文履歴</strong></span>
-        <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %>
+      <div class="heading mt-3">
+        <span class="mypage_heading"><strong>注文履歴</strong></span>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary w-px" %>
       </div>
 
     </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
