@@ -59,3 +59,31 @@ th.order-show3-third,
 th.order-show3-forth {
   width: 100px;
 }
+
+//注文情報確認
+.checkinfo {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th.checkitem-name-th {
+  width: 250px;
+}
+
+th.checkitem-price-th {
+  width: 110px;
+}
+
+th.checkitem-amount-th {
+  width: 70px;
+}
+
+th.checkitem-subtotal-th {
+  width: 70px;
+}
+
+.checkinf-paymentmethod,
+.checkinfo-address,
+.checkinfo-name {
+  width: 4em;
+}
