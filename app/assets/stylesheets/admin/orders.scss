@@ -26,13 +26,14 @@
   display: inline-block;
   width: auto;
 }
-//label {
+
+.admin-ordershow {
   //display: inline-block;
   //text-align: left;
-  //width: 7em;
-//}
+  width: 7em;
+}
 
-label.payment {
+.payment {
   display: inline-block;
   text-align: left;
   width: 6em;
@@ -43,13 +44,13 @@ th.button-th {
   width: auto;
 }
 
-th.making-status-th,
-.select-form {
+th.making-status-th {
+//.select-form {
   width: 210px;
 }
 
 th.order-item-name {
-  width: 200px;
+  width: 190px;
 }
 
 th.order-item-price {
@@ -57,13 +58,19 @@ th.order-item-price {
 }
 
 th.order-item-amount {
-  width: 70px;
+  width: 65px;
 }
 
 th.order-item-subtotal {
   width: 70px;
 }
+
+.td-button {
+    /*コレ*/display: flex;
+    /*コレ*/justify-content: flex-end;
+}
 .payment-box {
   display: flex;
   align-items: flex-end;
+  padding-right: 5px;
 }

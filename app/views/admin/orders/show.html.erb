@@ -1,21 +1,21 @@
 <div class="container">
-  <h2>注文履歴詳細</h2>
+  <h3>注文履歴詳細</h3>
   <div class="row">
     <div class="col">
-      <label><strong>購入者</strong></label>
+      <label class="admin-ordershow"><strong>購入者</strong></label>
       <%= link_to admin_customer_path(@order) do %>
         <%= @order.name %>
       <% end %><br>
 
-      <label><strong>注文日</strong></label>
+      <label class="admin-ordershow"><strong>注文日</strong></label>
       <%= @order.created_at.strftime('%Y/%m/%d')%><br>
 
-      <label><strong>配送先</strong></label>
+      <label class="admin-ordershow"><strong>配送先</strong></label>
       〒<%= @order.postal_code %><span></span><%= @order.address %><br>
-      <label>   </label>
+      <label class="admin-ordershow">   </label>
       <%= @order.name %><br>
 
-      <label><strong>支払方法</strong></label>
+      <label class="admin-ordershow"><strong>支払方法</strong></label>
       <%= @order.payment_method_i18n %><br>
 
       <!--<label><strong>注文ステータス</strong></label>-->
@@ -51,7 +51,7 @@
               <td><%= (order_detail.amount * order_detail.item.with_tax_price).to_s(:delimited) %></td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
                 <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6 select-form" %></td>
-                <td><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
+                <td class="td-button"><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
               <% end %>
             </tr>
           <% end %>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="col-md-3 payment-box">
-      <div class="ml-3">
+      <div>
         <label class="payment"><strong>商品合計</strong></label>
         <%= (@order.total_payment - @order.shipping_cost).floor.to_s(:delimited) %>円<br>
 
