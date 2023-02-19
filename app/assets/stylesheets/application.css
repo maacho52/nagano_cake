@@ -90,3 +90,8 @@ footer {
 .customer-login {
   width: 7em;
 }
+
+/* 管理者ログイン */
+.admin-login {
+  width: 7em;
+}  

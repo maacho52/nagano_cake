@@ -4,13 +4,13 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="field">
-          <%= f.label :"メールアドレス   "%>
+        <div class="field d-flex">
+          <%= f.label :"メールアドレス" %>
           <%= f.email_field :email, autofocus: true, style: "width:60%", autocomplete: "email" %>
         </div>
 
-        <div class="field">
-          <%= f.label :"パスワード   " %>
+        <div class="field d-flex">
+          <%= f.label :"パスワード" %>
           <%= f.password_field :password, style: "width:60%", autocomplete: "current-password" %>
         </div>
 

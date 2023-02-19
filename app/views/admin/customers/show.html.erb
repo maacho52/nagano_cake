@@ -4,32 +4,33 @@
 
 
     <div class="col">
-            <label>会員ID</label>
+            <label class="admin-customershow">会員ID</label>
             <%= @customer.id%><br>
 
-            <label>氏名</label>
+            <label class="admin-customershow">氏名</label>
             <%= @customer.last_name + @customer.first_name %><br>
 
-            <label>郵便番号</label>
+            <label class="admin-customershow">郵便番号</label>
             <%= @customer.postal_code %><br>
 
-            <label>住所</label>
+            <label class="admin-customershow">住所</label>
             <%= @customer.address %><br>
 
-            <label>電話番号</label>
+            <label class="admin-customershow">電話番号</label>
             <%= @customer.telephone_number %><br>
 
-            <label>メールアドレス</label>
+            <label class="admin-customershow">メールアドレス</label>
             <%= @customer.email %><br>
 
-          <label>会員ステータス</label>
+          <label class="admin-customershow">会員ステータス</label>
           <% if @customer.is_deleted == true %>
             <span class="font-weight-bold text-success">退会</span>
           <% else %>
             <span class="font-weight-bold text-success">有効</span>
           <% end %><br>
 
-      <label></label><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-sm btn-success" %>
+      <label class="admin-customershow"></label>
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-sm btn-success" %>
       <%= link_to "注文履歴一覧を見る", admin_order_path(@customer), class: "btn btn-sm btn-primary" %>
     </div>
   </div>

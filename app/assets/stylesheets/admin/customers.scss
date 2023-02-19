@@ -1,3 +1,16 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+ 
+.admin-customershow {
+  width: 7em;
+}
+
+.admin-customerlabel {
+  width: 7em;
+}

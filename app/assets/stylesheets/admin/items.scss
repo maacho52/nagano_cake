@@ -25,18 +25,31 @@ textarea,{
   width: 250px;
   height: 150px;
 }
-.submit-button {
-  text-align: center;
-}
 
-.item-label{
+//商品編集画面
+.admin-itemlabel{
     display: inline-block;
     text-align: left;
-    width: 100px;
+    width: 7em;
 }
 
 .item-show-label {
     display: inline-block;
     text-align: left;
     width: 120px;
+}
+
+.file-select {
+  display: inline-block;
+  text-align: left;
+}
+
+.submit-button {
+  text-align: left;
+}
+
+//商品詳細画面
+
+.admin-itemshow {
+  width: 7em;
 }
