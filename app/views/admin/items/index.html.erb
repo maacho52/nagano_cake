@@ -1,5 +1,11 @@
 <div class="container">
-  <h3>商品一覧</h3>
+  <div class="d-flex">
+    <h3>商品一覧</h3>
+    <%= link_to new_admin_item_path, class: "btn btn--circle btn--circle-c btn--shadow ml-auto"  do %>
+     <i class="fa-solid fa-plus ml-auto mt-3 fa-2x" style="color: gray;"></i>
+    <% end %>
+  </div>
+  
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col">

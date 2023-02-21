@@ -53,3 +53,23 @@ textarea,{
 .admin-itemshow {
   width: 7em;
 }
+
+//商品一覧
+.btn--circle {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+.size {
+  color: #fff;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
