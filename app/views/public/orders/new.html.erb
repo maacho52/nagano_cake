@@ -33,7 +33,7 @@
           </span><br>
           <span class="ml-6"></span>
           <span class="ml-3"></span>
-          <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), :size=>"60" %>
+          <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display), :size=>"60" %>
         </div>
 
         <div class="new-delivery-address">
