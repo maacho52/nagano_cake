@@ -50,8 +50,12 @@
               <td><%= order_detail.amount %></td>
               <td><%= (order_detail.amount * order_detail.item.with_tax_price).to_s(:delimited) %></td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-                <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6 select-form" %></td>
-                <td class="td-button"><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
+                <% if Order.order_statuses.key(1) %>
+                  <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: OrderDetail.making_statuses_i18n.key(0)}, class: "form-control form-control-sm col-6 select-form" %></td>
+                <% else %>
+                  <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6 select-form" %></td>
+                <% end %>
+                  <td class="td-button"><%= f.submit "更新", class: "btn btn-sm btn-success" %></td>
               <% end %>
             </tr>
           <% end %>
