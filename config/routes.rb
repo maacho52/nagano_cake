@@ -22,6 +22,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: 'homes#top'
     get 'about' => 'homes#about'
     #get 'orders/new'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders, only: [:new, :show, :create, :index]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
@@ -36,7 +37,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     post 'orders/check' => 'orders#check'
     get 'order/complete' => 'orders#complete'
 
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    
   end
   namespace :admin do
     root to: 'homes#top'
