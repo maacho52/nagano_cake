@@ -6,6 +6,11 @@ class Admin::OrderDetailsController < ApplicationController
     @order = @order_detail.order
     @order_details = @order.order_details
     @order_detail.update(order_detail_params)
+        ## 製作ステータスが全てcompletedになったとき、注文ステータスpreparingに更新
+    if @order.order_details.count == @order.order_details.where(making_status: 3).count
+        @order.order_status = "preparing"
+        @order.save
+    end
     redirect_to admin_order_path(@order)
   end
 
