@@ -64,7 +64,7 @@
 }
 
 .confirm-password {
-  margin-left: 62px; 
+  margin-left: 62px;
 }
 
 .customer-login {
@@ -96,3 +96,14 @@ footer {
   width: 7em;
 }
 
+/* 画面全体背景 */
+body {
+  background-image: image-url('images/bgimage.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba( 225, 225, 225, 0.5);
+  height: 100%;
+  width: 100%;
+}
