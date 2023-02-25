@@ -18,21 +18,19 @@ class Admin::OrdersController < ApplicationController
     end
     ##↑注文ステータスpaid_up、製作ステータスを全てproduction_waitingに更新する
 
-    @order_details.each do |order_detail|
-      if order_detail.making_status == "production_making"
-        @order.order_status = "making"
-        @order.save
-      end
-      ## 製作ステータスmaking、注文ステータスをproduction_makingに更新
+    #@order_details.each do |order_detail|
+      #if order_detail.making_status == "production_making"
+        #@order.order_status = "making"
+        #@order.save
+      #end
+    #end
+      ## 製作ステータスproduction_making、注文ステータスをmakingに更新
 
       ## 紐付いている注文商品の製作ステータスが "すべて" completedになったとき、注文ステータスをpreparingに更新させたい
       ## 紐付いている注文商品の製作ステータスを一つ一つeach文で確認
-      if order_detail.making_status != "completed" ## 製作ステータスcompletedではない場合
-         @order.order_status = "making"
-         @order.save
-      end
 
-    end
+      ##elsif order_detail.making_status != "completed" ## 製作ステータスcompletedではない場合
+         ##@order.order_status = "making"
 
 
 
